@@ -16,7 +16,7 @@ with st.sidebar:
         if not (replicate_api.startswith('r8_') and len(replicate_api)==40):
             st.warning('Please enter your credentials!', icon='⚠️')
         else:
-            st.success('Proceed to entering your prompt message!', icon='👉')
+            st.success('Proceed to entering your prompt message!' + replicate_api, icon='👉')
     st.markdown('📖 Learn how to build this app in this [blog](https://blog.streamlit.io/how-to-build-a-llama-2-chatbot/)!')
 os.environ['REPLICATE_API_TOKEN'] = replicate_api
 
