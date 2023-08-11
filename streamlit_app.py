@@ -6,19 +6,19 @@ import os
 st.set_page_config(page_title="PHILLIP Chatbot (LLAMA2)")
 
 # Replicate Credentials
-with st.sidebar:
-    st.title('PHILLIP CHATBOT')
-    if 'REPLICATE_API_TOKEN' in st.secrets:
-        st.success('API key already provided!', icon='✅')
-        replicate_api = st.secrets['REPLICATE_API_TOKEN']
-    else:
-        replicate_api = st.text_input('Enter Replicate API token:', type='password')
-        if not (replicate_api.startswith('r8_') and len(replicate_api)==40):
+#with st.sidebar:
+#    st.title('PHILLIP CHATBOT')
+#    if 'REPLICATE_API_TOKEN' in st.secrets:
+#        st.success('API key already provided!', icon='✅')
+#        replicate_api = st.secrets['REPLICATE_API_TOKEN']
+#    else:
+#        replicate_api = st.text_input('Enter Replicate API token:', type='password')
+#        if not (replicate_api.startswith('r8_') and len(replicate_api)==40):
             st.warning('Please enter your credentials!', icon='⚠️')
-        else:
-            st.success('Proceed to entering your prompt message!' + replicate_api, icon='👉')
-    st.markdown('📖 Learn how to build this app in this [blog](https://blog.streamlit.io/how-to-build-a-llama-2-chatbot/)!')
-os.environ['REPLICATE_API_TOKEN'] = replicate_api
+#        else:
+#            st.success('Proceed to entering your prompt message!' + replicate_api, icon='👉')
+#    st.markdown('📖 Learn how to build this app in this [blog](https://blog.streamlit.io/how-to-build-a-llama-2-chatbot/)!')
+os.environ['REPLICATE_API_TOKEN'] = 'r8_4Ak35VhxJi9r3vfjBk9AxvcorkoTFZg4HUhDK' #replicate_api
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
@@ -31,7 +31,7 @@ for message in st.session_state.messages:
 
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "Phillip Assistant is here, How may I assist you today?"}]
-st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
+#st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
 # Function for generating LLaMA2 response
 # Refactored from https://github.com/a16z-infra/llama2-chatbot
