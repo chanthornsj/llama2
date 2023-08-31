@@ -22,7 +22,7 @@ os.environ['REPLICATE_API_TOKEN'] = 'r8_4Ak35VhxJi9r3vfjBk9AxvcorkoTFZg4HUhDK' #
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "Welcome to Phillip Bank, how may I assist you today?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Welcome to Mei Mei personal assistant, how may I assist you today?"}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:
@@ -30,7 +30,7 @@ for message in st.session_state.messages:
         st.write(message["content"])
 
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "Phillip Assistant is here, How may I assist you today?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Your sweet Assistant is here, How may I assist you today?"}]
 st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
 # Function for generating LLaMA2 response
